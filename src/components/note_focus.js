@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { editNote, deleteNote } from '../actions';
+import { editNote, deleteNote, toggleEditor } from '../actions';
 
 var old = function({Selected}) {
     if (!Selected) {
@@ -29,13 +29,18 @@ class NoteFocus extends Component {
         this.state = {};
     }
 
+    editNote() {
+        this.props.editNote(this.props.Selected);
+        this.props.toggleEditor();
+    }
+
     renderControls() {
         if(this.props.Selected.id != 0) {
             return (
                 <div className="note-ctrl">
                     <button
                         className="btn edit-btn"
-                        onClick={() => {this.props.editNote(this.props.Selected)}}>
+                        onClick={() => {this.editNote()}}>
                         edit
                     </button>
                     <button
@@ -71,7 +76,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ editNote, deleteNote }, dispatch);
+    return bindActionCreators({ editNote, deleteNote, toggleEditor }, dispatch);
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(NoteFocus);

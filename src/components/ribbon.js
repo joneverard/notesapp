@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { toggleEditor } from '../actions/index';
+import { toggleEditor, newNote } from '../actions/index';
 
 
 class Ribbon extends Component {
@@ -19,11 +19,16 @@ class Ribbon extends Component {
         this.props.searchNotes(term);
     }
 
+    createNewNote() {
+        this.props.toggleEditor();
+        this.props.newNote();
+    }
+
 
     render() {
         return (
             <div className="ribbon">
-            <button className="btn btn-primary" onClick={this.props.toggleEditor}>Add Note</button>
+            <button className="btn btn-primary" onClick={() => {this.createNewNote()}}>Add Note</button>
             <p>Search Notes:</p>
             <input
                 value={this.state.term}
@@ -35,7 +40,7 @@ class Ribbon extends Component {
 
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ toggleEditor: toggleEditor }, dispatch);
+    return bindActionCreators({ toggleEditor, newNote }, dispatch);
 };
 
 

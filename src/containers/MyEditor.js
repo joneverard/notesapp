@@ -23,12 +23,12 @@ class MyEditor extends React.Component {
     // }
 
     // focus on getting notes created with ids first...
-    var noteId = this.generateId();
+    // var noteId = this.generateId();
 
     this.state = {
       editorState: EditorState.createEmpty(),
       title: '',
-      id: noteId
+      id: 0
     };
 
 
@@ -39,14 +39,12 @@ class MyEditor extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  generateId() {
-    var d = new Date()
-    var shuffle = d.valueOf().toString().split('').sort(function(){return 0.5-Math.random()}).join('');
-    return shuffle;
-  }
-
   componentDidMount() {
-    // this.focus();
+    this.setState({
+      editorState: EditorState.createWithContent(this.props.Note.content),
+      title: this.props.Note.title,
+      id: this.props.Note.id
+    })
   }
 
   onChange = (editorState) => {

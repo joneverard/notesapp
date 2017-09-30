@@ -36,7 +36,7 @@ class App extends Component {
 
     renderFocus() {
         if (this.props.displayEditor) {
-            return <MyEditor />;
+            return <MyEditor Note={this.props.NoteEditor}/>;
         } else {
             return <NoteFocus Selected={this.props.Selected} />;
         };
@@ -73,7 +73,8 @@ function mapStateToProps(state) {
     return {
         Notes: state,
         Selected: state.SelectedNote,
-        displayEditor: state.DisplayEditor
+        displayEditor: state.DisplayEditor,
+        NoteEditor: state.NoteEditor
     }
 }
 

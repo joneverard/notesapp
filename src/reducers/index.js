@@ -3,13 +3,15 @@ import NotesReducer from './note_reducer';
 import InitialState from './initial_state';
 import SelectReducer from './select_note';
 import DisplayEditorReducer from './display_editor_reducer';
+import NoteEditorReducer from './note_editor';
 
 
 const rootReducer = combineReducers({
   NotesReducer: NotesReducer,
   InitialState: InitialState,
   SelectedNote: SelectReducer,
-  DisplayEditor: DisplayEditorReducer
+  DisplayEditor: DisplayEditorReducer,
+  NoteEditor: NoteEditorReducer
 });
 
 
