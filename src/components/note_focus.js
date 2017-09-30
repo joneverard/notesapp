@@ -32,6 +32,7 @@ class NoteFocus extends Component {
     renderControls() {
         if(this.props.Selected.id != 0) {
             return (
+                <div className="note-ctrl">
                     <button
                         className="btn edit-btn"
                         onClick={() => {this.props.editNote(this.props.Selected)}}>
@@ -42,6 +43,7 @@ class NoteFocus extends Component {
                         onClick={() => {this.props.deleteNote(this.props.Selected)}}>
                         del
                     </button>
+                </div>
             )
         }
     }
@@ -54,9 +56,7 @@ class NoteFocus extends Component {
             return (
                 <div className="focus">
                     <h2 className="note-title">{this.props.Selected.title}</h2>
-                    <div className="note-ctrl">
-
-                    </div>
+                    {this.renderControls()}
                     <p>{this.props.Selected.content.getPlainText()}</p>
                 </div>
             )
