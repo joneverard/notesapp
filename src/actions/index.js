@@ -10,6 +10,7 @@ export const EDIT_NOTE = 'edit';
 export const DELETE_NOTE = 'delete';
 export const NEW_NOTE = 'new';
 export const SAVE_NOTE = 'save';
+export const SEARCH_NOTES = 'search';
 
 
 export function createNote(note) {
@@ -70,6 +71,13 @@ export function deleteNote(note) {
     return {
         type: DELETE_NOTE,
         payload: note
+    }
+}
+
+export function searchNotes(term) {
+    return {
+        type: SEARCH_NOTES,
+        payload: term
     }
 }
 
