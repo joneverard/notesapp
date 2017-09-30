@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux';
 import { EditorState } from 'draft-js';
 import Editor from 'draft-js-plugins-editor';
 
-import { createNote, toggleEditor, selectNote } from '../actions/index';
+import { createNote, toggleEditor, selectNote, saveNote } from '../actions/index';
 
 /* Import the `basicTextStylePlugin` */
 import basicTextStylePlugin from '../plugins/basicTextStylePlugin';
@@ -43,7 +43,7 @@ class MyEditor extends React.Component {
     this.setState({
       editorState: EditorState.createWithContent(this.props.Note.content),
       title: this.props.Note.title,
-      id: this.props.Note.id
+      id: this.props.Note.id,
     })
   }
 
@@ -66,7 +66,12 @@ class MyEditor extends React.Component {
       title: this.state.title,
       id: this.state.id
     }
-    this.props.createNote(n);
+    if (this.props.Note.newNote) {
+      this.props.createNote(n);
+    } else {
+      this.props.saveNote(n)
+    }
+    // this.props.createNote(n);
     this.props.toggleEditor();
     this.props.selectNote(n);
   }
@@ -113,7 +118,7 @@ class MyEditor extends React.Component {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ createNote, toggleEditor, selectNote }, dispatch);
+    return bindActionCreators({ createNote, toggleEditor, selectNote, saveNote }, dispatch);
 };
 
 export default connect(null, mapDispatchToProps)(MyEditor);

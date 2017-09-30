@@ -1,7 +1,7 @@
 // import { FETCH_POSTS, FETCH_POST, DELETE_POST } from '../actions';
 // import constants up here...
 import _ from 'lodash';
-import { CREATE_POST, FETCH_NOTES, CREATE_NOTE, DELETE_NOTE } from '../actions';
+import { CREATE_POST, FETCH_NOTES, CREATE_NOTE, DELETE_NOTE, SAVE_NOTE } from '../actions';
 import { ContentState } from 'draft-js';
 
 var one = ContentState.createFromText('hello world');
@@ -33,8 +33,15 @@ export default function NotesReducer(state = initialState, action) {
             }
             console.log(state);
             return [...state, new_note]
+
+        case SAVE_NOTE:
+            var arr = [...state];
+            var newArr = removeByAttr(arr, 'id', action.payload.id); // this is bad. should've used an object as the data structure.
+            return [action.payload, ...newArr];
+
+
         case DELETE_NOTE:
-            const arr = [...state];
+            var arr = [...state];
             var newState = removeByAttr(arr, 'id', action.payload.id);
             console.log(newState);
             return newState;
@@ -52,6 +59,20 @@ function removeByAttr (arr, attr, value){
            && (arguments.length > 2 && arr[i][attr] === value ) ){
 
            arr.splice(i,1);
+
+       }
+    }
+    return arr;
+}
+
+function popByAttr (arr, attr, value)  {
+    var i = arr.length;
+    while(i--){
+       if( arr[i]
+           && arr[i].hasOwnProperty(attr)
+           && (arguments.length > 2 && arr[i][attr] === value ) ){
+
+           return arr[i];
 
        }
     }

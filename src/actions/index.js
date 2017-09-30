@@ -9,6 +9,7 @@ export const TOGGLE_EDITOR = 'toggle';
 export const EDIT_NOTE = 'edit';
 export const DELETE_NOTE = 'delete';
 export const NEW_NOTE = 'new';
+export const SAVE_NOTE = 'save';
 
 
 export function createNote(note) {
@@ -18,10 +19,16 @@ export function createNote(note) {
     }
 }
 
+export function saveNote(note) {
+    return {
+        type: SAVE_NOTE,
+        payload: note
+    }
+}
 
 export function newNote() {
     const id = generateId();
-    const init = {id: id, title:'', content:ContentState.createFromText(' ')}
+    const init = {id: id, title:'', content:ContentState.createFromText(' '), newNote:true}
     return {
         type: NEW_NOTE,
         payload: init
@@ -51,6 +58,7 @@ export function toggleEditor() {
 }
 
 export function editNote(note) {
+    // note['newNote'] = false
     return {
         type: EDIT_NOTE,
         payload: note
