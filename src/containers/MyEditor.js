@@ -37,6 +37,7 @@ class MyEditor extends React.Component {
       basicTextStylePlugin,
     ];
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.setState = this.setState.bind(this);
   }
 
   componentDidMount() {
@@ -47,10 +48,17 @@ class MyEditor extends React.Component {
     })
   }
 
+  // onChange = (editorState) => {
+  //   console.log(this.state);
+  //   this.setState({
+  //     editorState
+  //   });
+  // }
+
   onChange = (editorState) => {
     this.setState({
       editorState
-    });
+    })
   }
 
   onTitleChange(title) {
@@ -58,7 +66,7 @@ class MyEditor extends React.Component {
 
   }
 
-  handleSubmit = (e) => {
+  handleSubmit(e) {
     // bind an action creator to this.props...
     e.preventDefault();
     var n = {
@@ -76,7 +84,7 @@ class MyEditor extends React.Component {
     this.props.selectNote(n);
   }
 
-  handleCancel = (e) => {
+  handleCancel (e) {
     e.preventDefault()
     this.props.toggleEditor();
   }
