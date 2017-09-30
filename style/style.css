@@ -1,0 +1,213 @@
+/* Html and body
+---------------------------------------- */
+/** {
+    border: 1px solid red;
+}*/
+
+html, body {
+    float: left;
+    width: 100%;
+    height: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+body {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background: linear-gradient(to bottom, #283c86, #45a247);
+}
+
+.shade {
+    background: rgba(0,0,0,0.5);
+    height: 100%;
+    width: 100%;
+    float: left;
+    box-sizing: border-box;
+}
+
+/* Ribbon styling
+---------------------------------------- */
+.ribbon {
+    margin: 10px;
+    box-sizing: border-box;
+}
+
+.ribbon p {
+    display: inline-block;
+    margin-left: 15px;
+    color: #ddd;
+}
+.ribbon input {
+    margin-left: 15px;
+    width: 200px;
+    border-radius: 1px;
+    display: inline-block;
+}
+
+
+/* Main App styling
+---------------------------------------- */
+.main {
+    height: calc(100% - 10px);
+    box-sizing: border-box;
+}
+
+.content {
+    height: calc(100% - 46px);
+}
+
+/* NoteList
+---------------------------------------- */
+.side-bar {
+    overflow-y: scroll;
+    height: 100%;
+}
+
+.note-item {
+    background: rgba(200,200,200,0.7);
+    border: 0px solid rgba(255,255,255,0.7);
+    margin-bottom: 3px;
+    border-radius: 3px;
+}
+
+
+/* Editor + Note focus
+---------------------------------------- */
+.editor, .focus, .title-input {
+    background: rgba(255, 255, 255, 0.5);
+    padding: 15px;
+    border-radius: 5px;
+}
+
+/* Editor
+---------------------------------------- */
+.editor {
+    height: 150px;
+}
+
+.title-input {
+    border: 0px solid;
+    font-size: 20px;
+    margin-bottom: 10px;
+    width: 100%;
+    color: #333;
+}
+
+.edit-main button:first-of-type {
+    margin-right: 15px;
+}
+
+.public-DraftEditorPlaceholder-root {
+    color: #333 !important;
+}
+
+/* Note focus
+---------------------------------------- */
+.note-title {
+    display: inline-block;
+}
+
+.note-ctrl {
+    float: right;
+}
+
+.note-ctrl button {
+    font-size: 80%;
+}
+
+.note-ctrl button:first-of-type {
+    margin-right: 5px;
+}
+
+/* some guffins to make the placeholder a darkey grey colour... */
+input::-webkit-input-placeholder {
+color: #333 !important;
+}
+
+input:-moz-placeholder { /* Firefox 18- */
+color: #333 !important;
+}
+
+input::-moz-placeholder {  /* Firefox 19+ */
+color: #333 !important;
+}
+
+input:-ms-input-placeholder {
+color: #333 !important;
+}
+
+
+
+/*html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    float: left;
+    width: 100%;
+}
+body {
+    float: left;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background: linear-gradient(to bottom, #283c86, #45a247);
+}
+
+.selected {
+    background-color: #aaa !important;
+}
+
+.focus-box {
+    box-sizing: border-box;
+    border: 1px solid grey;
+    background: #eee;
+    border-radius: 5px;
+    display: block;
+    width: 100%;
+}
+
+.focus-box h2 {
+    margin-top: 10px;
+    word-wrap: break-word;
+}
+
+.side-bar {
+    width: 100%;
+    display: inline-block;
+    overflow-y: scroll;
+    margin-right: none;
+    background-color: rgba(232, 232, 232, 0.3);
+    border-radius: 5px;
+}
+
+.edit-box {
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+
+.editor {
+    height: 250px;
+    background-color: rgba(232, 232, 232, 0.7);
+    border-radius: 5px;
+    overflow-y: scroll;
+}
+
+.edit-control {
+    display: inline-block;
+    margin-top: 10px;
+    margin-left: 15px;
+}
+
+.edit-control button:first-child {
+    margin-right: 10px;
+}
+
+.full-height {
+    height:100%;
+}
+
+*/
